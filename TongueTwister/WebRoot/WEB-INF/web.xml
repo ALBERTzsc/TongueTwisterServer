@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>TongueTwister</display-name>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>APKDownload</servlet-name>
+    <servlet-class>team.abc.servlet.APKDownload</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>APKUpdate</servlet-name>
+    <servlet-class>team.abc.servlet.APKUpdate</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Log4JInitServlet</servlet-name>
+    <servlet-class>team.abc.servlet.Log4JInitServlet</servlet-class>
+    <init-param>
+      <param-name>log4j-properties-location</param-name>
+      <param-value>/WEB-INF/log4j.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+  <servlet-mapping>
+    <servlet-name>APKUpdate</servlet-name>
+    <url-pattern>/APKUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>APKDownload</servlet-name>
+    <url-pattern>/APKDownload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Log4JInitServlet</servlet-name>
+    <url-pattern>/Log4JInitServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
