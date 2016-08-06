@@ -30,7 +30,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>APKDownload</servlet-name>
-    <url-pattern>/APKDownload</url-pattern>
+    <url-pattern>/TongueTwister.apk</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Log4JInitServlet</servlet-name>

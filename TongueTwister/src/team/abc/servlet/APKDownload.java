@@ -74,9 +74,9 @@ public class APKDownload extends HttpServlet {
 			LOG.info(user.getUserIp()+"请求下载成功。");
 			
 			//服务器端跳转 网址不变， forward
-			//request.getRequestDispatcher(DOWNLOAD_URL).forward(request,response);
+			request.getRequestDispatcher(DOWNLOAD_URL).forward(request,response);
 			//客户端跳转 网址改变， redirect
-			response.sendRedirect(DOWNLOAD_URL);
+			//response.sendRedirect(DOWNLOAD_URL);
 		}else{
 			
 			LOG.info(user.getUserIp()+"在规定时间间隔内重复请求。");
