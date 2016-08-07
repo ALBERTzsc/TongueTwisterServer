@@ -1,15 +1,15 @@
 package team.abc.bean;
 
-public class User {
+public class IP {
 
 	private String userIp;
 	private long time;
 	
-	public User() {
+	public IP() {
 
 	}
 
-	public User(String userIp , long time){
+	public IP(String userIp , long time){
 		this.userIp = userIp;
 		this.time = time;
 	}

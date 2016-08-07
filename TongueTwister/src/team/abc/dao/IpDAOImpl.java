@@ -4,37 +4,37 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import team.abc.bean.User;
+import team.abc.bean.IP;
 
-public class UserDAOImpl implements IUserDAO {
+public class IpDAOImpl implements IIpDAO {
 
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 
-	public UserDAOImpl(Connection conn) {
+	public IpDAOImpl(Connection conn) {
 		this.conn = conn;
 	}
 
 	// 向数据库中插入数据
-	public void insert(User user) throws Exception {
+	public void insert(IP ip) throws Exception {
 
 		String sql = "insert into tb_ip values(?,?)";
 		//System.out.println(sql);
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, user.getUserIp());
-		pstmt.setLong(2, user.getTime());
+		pstmt.setString(1, ip.getUserIp());
+		pstmt.setLong(2, ip.getTime());
 		pstmt.executeUpdate();
 		pstmt.close();
 		System.out.println("已插入数据");
 	}
 
 	// 向数据库中更新数据
-	public boolean update(User user) throws Exception {
+	public boolean update(IP ip) throws Exception {
 		String sql = "update tb_ip set time=? where userIp=?";
 		//System.out.println(sql);
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setLong(1, user.getTime());
-		pstmt.setString(2, user.getUserIp());
+		pstmt.setLong(1, ip.getTime());
+		pstmt.setString(2, ip.getUserIp());
 		System.out.println("已更新数据" + pstmt.executeUpdate());
 		if (pstmt.executeUpdate() > 0) {
 			pstmt.close();
@@ -56,7 +56,7 @@ public class UserDAOImpl implements IUserDAO {
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
 			System.out.println("该ip已存在！！！");
-			User preUser = new User();
+			IP preUser = new IP();
 			preUser.setTime(rs.getLong(2));
 			rs.close();
 			pstmt.close();
@@ -70,9 +70,9 @@ public class UserDAOImpl implements IUserDAO {
 	}
 
 	public static void main(String[] args) {
-		IUserDAO userDAO = DAOFactory.getUserDAOInstance();
+		IIpDAO userDAO = DAOFactory.getIpDAOInstance();
 		try {
-			User user = new User();
+			IP user = new IP();
 			user.setUserIp("192.168.1.4");
 			user.setTime(System.currentTimeMillis());
 			userDAO.insert(user);

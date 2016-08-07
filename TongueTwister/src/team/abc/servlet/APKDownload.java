@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import team.abc.bean.User;
+import team.abc.bean.IP;
 import team.abc.tools.AllowAppDownload;
 
 public class APKDownload extends HttpServlet {
@@ -64,14 +64,14 @@ public class APKDownload extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String ip = request.getRemoteAddr();
+		String ipAddress = request.getRemoteAddr();
 		
-		User user = new User(ip,System.currentTimeMillis());
+		IP ip = new IP(ipAddress,System.currentTimeMillis());
 		
-		AllowAppDownload check = new AllowAppDownload(user);
+		AllowAppDownload check = new AllowAppDownload(ip);
 		
 		if(check.allowDownload()){
-			LOG.info(user.getUserIp()+"请求下载成功。");
+			LOG.info(ip.getUserIp()+"请求下载成功。");
 			
 			//服务器端跳转 网址不变， forward
 			//request.getRequestDispatcher(DOWNLOAD_URL).forward(request,response);
@@ -79,7 +79,7 @@ public class APKDownload extends HttpServlet {
 			response.sendRedirect(DOWNLOAD_URL);
 		}else{
 			
-			LOG.info(user.getUserIp()+"在规定时间间隔内重复请求。");
+			LOG.info(ip.getUserIp()+"在规定时间间隔内重复请求。");
 
 			request.getRequestDispatcher(SHORT_TIME_URL).forward(request,response);
 			
