@@ -14,5 +14,15 @@ public class DAOFactory {
 		}
 		return null;
 	}
+	
+	public static IUserInfoDAO getUserInfoDAOInstance(){
+		try {
+			return new UserInfoDAOImpl(ConnManage.currentConnection());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

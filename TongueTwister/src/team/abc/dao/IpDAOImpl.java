@@ -69,20 +69,4 @@ public class IpDAOImpl implements IIpDAO {
 
 	}
 
-	public static void main(String[] args) {
-		IIpDAO userDAO = DAOFactory.getIpDAOInstance();
-		try {
-			IP user = new IP();
-			user.setUserIp("192.168.1.4");
-			user.setTime(System.currentTimeMillis());
-			userDAO.insert(user);
-			userDAO.queryByIp(user.getUserIp());
-			System.out.println("数据库中查询userIp相应的返回值为："
-					+ userDAO.queryByIp(user.getUserIp()));
-			System.out.println(userDAO.update(user));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 }
