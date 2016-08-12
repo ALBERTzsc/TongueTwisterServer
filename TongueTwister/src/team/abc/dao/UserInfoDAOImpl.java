@@ -147,17 +147,19 @@ public class UserInfoDAOImpl implements IUserInfoDAO {
 			ConnManage.commit();
 			
 			UserInfo userInfo = null;
-			
+			//新用户返回最后一名，旧用户返回排名
+			int i = 1;
 			while(rs.next()){
 				
 				if(rs.getLong(1) == id){
-					return rs.getRow();
+					return i;
 				}
+				i++;
 				
 			}
 			
 			
-			return -1;
+			return i;
 			
 		}catch (SQLException e) {
 			ConnManage.roolback();
@@ -196,7 +198,7 @@ public class UserInfoDAOImpl implements IUserInfoDAO {
 
 		//System.out.println(iuserInfoDAO.queryUserInfosOrderByRanking(3));
 		
-		System.out.println(iuserInfoDAO.queryChallengePassNumById(123123));
+		System.out.println(iuserInfoDAO.queryChallengePassNumById(-10));
 	}
 
 }
