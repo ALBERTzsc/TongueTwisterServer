@@ -30,5 +30,6 @@ public class IP {
 	public void setTime(long time) {
 		this.time = time;
 	}
+	
 
 }
