@@ -4,6 +4,7 @@ public class IP {
 
 	private String userIp;
 	private long time;
+	private String location;
 	
 	public IP() {
 
@@ -23,6 +24,10 @@ public class IP {
 		this.userIp = userIp;
 	}
 
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
 	public long getTime() {
 		return time;
 	}
@@ -31,5 +36,8 @@ public class IP {
 		this.time = time;
 	}
 	
-
+	public String getLocation() {
+		return location;
+	}
+	
 }

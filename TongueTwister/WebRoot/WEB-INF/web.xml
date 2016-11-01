@@ -34,6 +34,12 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+  <servlet>
+    <servlet-name>ScheduledTaskInitServlet</servlet-name>
+    <servlet-class>team.abc.servlet.ScheduledTaskInitServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
 
 
 
@@ -53,4 +59,8 @@
 		<servlet-name>Log4JInitServlet</servlet-name>
 		<url-pattern>/Log4JInitServlet</url-pattern>
 	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ScheduledTaskInitServlet</servlet-name>
+    <url-pattern>/servlet/ScheduledTaskInitServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

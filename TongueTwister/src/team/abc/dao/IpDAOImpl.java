@@ -68,5 +68,40 @@ public class IpDAOImpl implements IIpDAO {
 		}
 
 	}
+
+	@Override
+	public List<IP> queryAllIpWithEmptyLocation() throws Exception {
+
+		String sql = "select userIp from "+IP_TABLE_NAME+" where location is null";
+		
+		List<IP> list = new ArrayList<IP>();
+		IP ip = null;
+		pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+		while (rs.next()) {
+			ip = new IP();
+			ip.setUserIp(rs.getString(1));
+			list.add(ip);
+		} 
+				
+		rs.close();
+		pstmt.close();
+		
+		return list;
+	}
+
+	@Override
+	public void updateIPLocation(List<IP> ipList) throws Exception {
+
+		String sql = "update "+IP_TABLE_NAME+" set location=? where userIp=?";
+		pstmt = conn.prepareStatement(sql);
+		for(IP ip : ipList){
+			pstmt.setString(1, ip.getLocation());
+			pstmt.setString(2, ip.getUserIp());
+			pstmt.executeUpdate();
+		}
+		pstmt.close();
+		
+	}
 	
 }
