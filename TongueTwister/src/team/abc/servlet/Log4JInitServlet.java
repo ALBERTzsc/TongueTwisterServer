@@ -33,7 +33,16 @@ public class Log4JInitServlet extends HttpServlet {
      */  
     public void init(ServletConfig config) throws ServletException {  
         System.out.println("Log4JInitServlet 正在初始化 log4j日志设置信息");  
-        String log4jLocation = config.getInitParameter("log4j-properties-location");  
+        
+        String log4jLocation = config.getInitParameter("log4j-properties-win-location");
+        
+        //如果是Linux系统
+        if(System.getProperty("os.name").startsWith("Linux")){
+        	System.out.println("操作系统为Linux");
+        	log4jLocation = config.getInitParameter("log4j-properties-centos-location");
+        	
+        }
+        	        
 
         ServletContext sc = config.getServletContext();  
 

@@ -29,8 +29,12 @@
 		<servlet-name>Log4JInitServlet</servlet-name>
 		<servlet-class>team.abc.servlet.Log4JInitServlet</servlet-class>
 		<init-param>
-			<param-name>log4j-properties-location</param-name>
-			<param-value>/WEB-INF/log4j.properties</param-value>
+			<param-name>log4j-properties-win-location</param-name>
+			<param-value>/WEB-INF/log4j-win.properties</param-value>
+		</init-param>
+		<init-param>
+			<param-name>log4j-properties-centos-location</param-name>
+			<param-value>/WEB-INF/log4j-centos.properties</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

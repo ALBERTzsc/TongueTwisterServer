@@ -1,5 +1,5 @@
 ﻿{
   "url":"http://182.61.51.97:8080/TongueTwister/Download/TongueTwister.apk",
-  "versionCode":1,
-  "updateMessage":"1. 添加新功能 ;<br/>2. 修复了Bug;<br/>3. 优化了性能。"
+  "versionCode":3,
+  "updateMessage":"1. 优化闯关模式。<br/>2. 修复闯关模式下的Bug。"
 }

@@ -8,8 +8,13 @@ public class DataBaseConnection {
 	private final String DBDRIVER = "com.mysql.jdbc.Driver";
 
 	//private final String DBURL = "jdbc:mysql://127.0.0.1:3306/userdata?characterEncoding=utf8&useSSL=false";
-	private final String DBURL = "jdbc:mysql://182.61.51.97:3306/tonguetwister?characterEncoding=utf8&useSSL=false";
-
+	
+	//老服务器上的ip
+	//private final String DBURL = "jdbc:mysql://182.61.51.97:3306/tonguetwister?characterEncoding=utf8&useSSL=false";
+	
+	//新服务器地址
+	private final String DBURL = "jdbc:mysql://www.abcteam.cn:3306/tonguetwister?characterEncoding=utf8&useSSL=false";
+	
 	private final String DBUSER = "abcteam";
 
 	private final String DBPASSWORD = "abcteam@2016";
